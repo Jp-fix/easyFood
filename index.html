@@ -9,21 +9,62 @@
         <header>
             <!--TODO LOGO--><img src="">
             <nav>
-
             </nav>
             <h1>EasyFood</h1>
         </header>
         <main>
-            <div class="recipesSearch">
-                <input type="text" placeholder="Recherche par recette"></input>
-                <input type="checkbox"> Type de cuisine</input>
-                <label for="difficultyChoices">
-                    <input type="radio" id="difficultyChoices"> Facile</input>
-                    <input type="radio" id="difficultyChoices"> Moyen</input>
-                    <input type="radio" id="difficultyChoices"> Difficile</input>
-                </label>
-            </div>
-            <div class="recettes">
+            <div class="addRecipe">
+                <form id="addNewRecipe">
+
+                    <label for="recipeName">Nom de la recette</label>
+                        <input id="recipeName" type="text">
+
+                    <label for="recipeType">Type de recette</label>
+                    <select id="recipeType">
+                        <option value="Healthy">Healthy</option>
+                        <option value="Gourmande">Gourmande</option>
+                    </select>
+
+                    <label for="recipeDifficulty">Difficulté de la recette</label>
+                    <select id="recipeDifficulty">
+                        <option value="easy">Facile</option>
+                        <option value="medium">Moyen</option>
+                        <option value="hard">Difficile</option>
+                    </select>
+
+                    <label for="prepTime">Temps de préparation (en minutes)</label>
+                    <input id="prepTime" type="number">
+
+                    <label for="ingredientName">Ingrédient</label>
+                    <input id="ingredientName" type="text" placeholder="Nom">
+                    <label for="ingredientQuantity">Quantité</label>
+
+                    <input id="ingredientQuantity" type="number">
+                    <label for="ingredientUnit">Unité</label>
+
+                    <select id="ingredientUnit">
+                        <option value="Grammes">Grammes</option>
+                        <option value="Centilitre">Centilitre</option>
+                        <option value="Unité">Unité</option>
+                    </select>
+
+                    <label for="addNewIngredient">Ajouter un nouvel ingrédient</label>
+                    <input type="button" id="addNewIngredient" placeholder="Nouvel ingrédient">
+
+                    <label for="stepName">Étape</label>
+                    <input id="stepName" type="text" placeholder="Étape">
+                    <label for="stepDesc">Description</label>
+                    <input id="stepDesc" type="text">
+
+                    <label for="addNewStep">Ajouter une étape</label>
+                    <input type="button" id="addNewStep">
+
+                    <label for="recipeImage">Image</label>
+                    <input type="url" id="recipeImage">
+
+                    <label for="recipeFormSubmit">Envoyer la recette</label>
+                    <input type="submit" id="recipeFormSubmit">
+                </form>
             </div>
         </main>
         <footer>
