@@ -69,6 +69,12 @@
         </main>
         <footer>
         </footer>
+        <!-- Remplace ton importmap par ceci -->
+        <script type="module">
+            import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+            window.supabaseCreateClient = createClient;
+        </script>
+    <script src="js/supabase.js" type="module"></script>
     <script src="js/data.js" type="module"></script>
     <script src="js/main.js" type="module"></script>
     <script src="js/filters.js" type="module"></script>

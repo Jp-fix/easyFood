@@ -1,4 +1,6 @@
-document.getElementById("addNewRecipe").addEventListener("submit", function(e) {
+import { saveRecipe } from "./supabase.js";
+
+document.getElementById("addNewRecipe").addEventListener("submit", async function(e) {
     e.preventDefault()
     let getRecipeDifficultyData = document.getElementById("recipeDifficulty")
     let recipeDifficulty = getRecipeDifficultyData.value
@@ -12,35 +14,39 @@ document.getElementById("addNewRecipe").addEventListener("submit", function(e) {
         recipeType,
         recipeDifficulty,
         recipePrepTime,
-        recipeAllIngredients,
-        recipeAllSteps,
+        recipeIngredients,
+        recipeSteps,
         recipeImage,
     )
 
-    console.log(`Ajout d'une nouvelle recette à la bdd : ${getNewRecipeFormData.recipeName}`)
     console.log(getNewRecipeFormData)
+    //Sauvegarde des données dans Supabase
+    const result = await saveRecipe(getNewRecipeFormData)
+
+    if (result){
+        console.log(`Ajout d'une nouvelle recette à la bdd : ${getNewRecipeFormData.recipeName}`)
+    }
 
     this.reset()
-    recipeAllIngredients = [];
-    recipeAllSteps = [];
+    recipeIngredients = [];
+    recipeSteps = [];
 
     console.log("Formulaire réinitialisé !")
 })
 
-
-// Stockage des données imbriquées (allIngrédients + allSteps)
-let recipeAllIngredients = []
-let recipeAllSteps = []
+// Stockage des données imbriquées (Ingrédients + Steps)
+let recipeIngredients = []
+let recipeSteps = []
 
 export class Recipe {
-    constructor (recipeName = "Pas de nom", recipeType = "Pas de type", recipeDifficulty = "Pas de difficulté", recipePrepTime = [], recipeAllIngredients = [], recipeAllSteps = [], image = null){
+    constructor (recipeName = "Pas de nom", recipeType = "Pas de type", recipeDifficulty = "Pas de difficulté", recipePrepTime = [], recipeIngredients = [], recipeSteps = [], recipeImage = null){
         this.recipeName = recipeName;
         this.recipeType = recipeType;
         this.recipeDifficulty = recipeDifficulty;
         this.recipePrepTime = recipePrepTime || [];
-        this.recipeAllIngredients = recipeAllIngredients || [];
-        this.recipeAllSteps = recipeAllSteps || [];
-        this.image = image;
+        this.recipeIngredients = recipeIngredients || [];
+        this.recipeSteps = recipeSteps || [];
+        this.recipeImage = recipeImage;
     }
 }
 // Ajout des ingrédients de la recette
@@ -55,13 +61,13 @@ document.getElementById("addNewIngredient").addEventListener("click", function (
         unit :ingredientUnit,
     }
 
-    recipeAllIngredients.push(ingredient)
+    recipeIngredients.push(ingredient)
 
     document.getElementById("ingredientName").value = ""
     document.getElementById("ingredientQuantity").value = ""
     document.getElementById("ingredientUnit").value = ""
 
-    console.log("All ingredient array:",recipeAllIngredients)
+    console.log("All ingredient array:",recipeIngredients)
 })
 
 // Ajout des étapes de la recette
@@ -70,12 +76,12 @@ document.getElementById("addNewStep").addEventListener("click", function (e){
     let stepName = document.getElementById("stepName").value
     let stepDesc = document.getElementById("stepDesc").value
     let completStep = `${stepName} ${stepDesc}`
-    recipeAllSteps.push(completStep)
+    recipeSteps.push(completStep)
 
     document.getElementById("stepName").value = ""
     document.getElementById("stepDesc").value = ""
 
-    console.log("All steps array:",recipeAllSteps)
+    console.log("All steps array:",recipeSteps)
 })
 
 /*const couscous = new Recipe (
