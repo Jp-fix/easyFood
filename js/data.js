@@ -1,6 +1,5 @@
 document.getElementById("addNewRecipe").addEventListener("submit", function(e) {
     e.preventDefault()
-    let recipeId = self.crypto.randomUUID()
     let getRecipeDifficultyData = document.getElementById("recipeDifficulty")
     let recipeDifficulty = getRecipeDifficultyData.value
     let recipeImage = document.getElementById("recipeImage")
@@ -9,7 +8,6 @@ document.getElementById("addNewRecipe").addEventListener("submit", function(e) {
     let recipeName = document.getElementById("recipeName").value
 
     let getNewRecipeFormData = new Recipe(
-        recipeId,
         recipeName,
         recipeType,
         recipeDifficulty,
@@ -35,8 +33,7 @@ let recipeAllIngredients = []
 let recipeAllSteps = []
 
 export class Recipe {
-    constructor (iD = null, recipeName = "Pas de nom", recipeType = "Pas de type", recipeDifficulty = "Pas de difficulté", recipePrepTime = [], recipeAllIngredients = [], recipeAllSteps = [], image = null){
-        this.iD = iD;
+    constructor (recipeName = "Pas de nom", recipeType = "Pas de type", recipeDifficulty = "Pas de difficulté", recipePrepTime = [], recipeAllIngredients = [], recipeAllSteps = [], image = null){
         this.recipeName = recipeName;
         this.recipeType = recipeType;
         this.recipeDifficulty = recipeDifficulty;
@@ -52,8 +49,13 @@ document.getElementById("addNewIngredient").addEventListener("click", function (
     let ingredientName = document.getElementById("ingredientName").value
     let ingredientQuantity = document.getElementById("ingredientQuantity").value
     let ingredientUnit = document.getElementById("ingredientUnit").value
-    let completIngredient = `${ingredientName} ${ingredientQuantity} ${ingredientUnit}`
-    recipeAllIngredients.push(completIngredient)
+    let ingredient = {
+        name:ingredientName,
+        quantity :ingredientQuantity,
+        unit :ingredientUnit,
+    }
+
+    recipeAllIngredients.push(ingredient)
 
     document.getElementById("ingredientName").value = ""
     document.getElementById("ingredientQuantity").value = ""
