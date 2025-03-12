@@ -89,13 +89,6 @@
 
             <div class="recipe-grid" id="recipeContainer">
                 <!-- Les résultats de recherche seront insérés ici dynamiquement -->
-                <div class="empty-state">
-                    <svg class="empty-icon" width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 8V12M12 16H12.01M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                    <p class="empty-text">Aucune recette trouvée</p>
-                    <p class="empty-hint">Essayez de modifier vos critères de recherche</p>
-                </div>
             </div>
         </section>
     </main>
@@ -105,34 +98,11 @@
     </footer>
 </div>
 
-<!-- Template pour les cartes de recettes -->
-<template id="recipe-card-template">
-    <div class="recipe-card">
-        <div class="recipe-image">
-            <img src="" alt="">
-        </div>
-        <div class="recipe-content">
-            <div class="recipe-tags">
-                <span class="recipe-tag type"></span>
-                <span class="recipe-tag difficulty"></span>
-            </div>
-            <h3 class="recipe-title"></h3>
-            <div class="recipe-meta">
-                <div class="recipe-time">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 6V12L16 14M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                    <span></span>
-                </div>
-            </div>
-            <button class="recipe-view button secondary">Voir la recette</button>
-        </div>
-    </div>
-</template>
+›
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script>
-    window.supabaseCreateClient = supabase.createClient;
+<script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+    window.supabaseCreateClient = createClient;
 </script>
 <script src="../../../js/supabase.js" type="module"></script>
 <script src="../../../js/search.js" type="module"></script>

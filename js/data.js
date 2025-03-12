@@ -1,6 +1,6 @@
 import { saveRecipe } from "./supabase.js";
 
-document.getElementById("addNewRecipe").addEventListener("submit", async function(e) {
+ document.getElementById("addNewRecipe").addEventListener("submit", async function(e) {       
     e.preventDefault()
     let getRecipeDifficultyData = document.getElementById("recipeDifficulty")
     let recipeDifficulty = getRecipeDifficultyData.value
