@@ -83,36 +83,3 @@ document.getElementById("addNewStep").addEventListener("click", function (e){
 
     console.log("All steps array:",recipeSteps)
 })
-
-/*const couscous = new Recipe (
-    1,
-    "Couscous",
-    "Gourmand",
-    "Facile",
-)
-couscous.addPrepTime(90,"minutes")
-couscous.addIngredient("semoule", 500,"grammes")
-couscous.addIngredient("Poulet", 350,"grammes")
-couscous.addIngredient("Merguez", 6,"Unités")
-couscous.addPrepSteps(
-    "Faire cuire la semoule",
-    "Ajouter les légumes",
-    "Ajouter la viande",
-    "Servir chaud",
-    )*/
-/*
-
-console.log(`
-Pour faire un bon ${couscous.recipeName.toString()} !
-Il faut ${couscous.ingredients[0].quantity} ${couscous.ingredients[0].unit} de ${couscous.ingredients[0].name}.
-
-Liste des étapes à réaliser :
-
- - Étape 1 : ${couscous.prepSteps[0].step1}
- - Étape 2 : ${couscous.prepSteps[0].step2}
- - Étape 3 : ${couscous.prepSteps[0].step3}
- - Étape 4 : ${couscous.prepSteps[0].step4}
-
- Profitez de votre repas !
- `)
-*/

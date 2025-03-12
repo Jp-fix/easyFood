@@ -1,125 +1,245 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>easyFood | Ajouter une recette</title>
+    <title>EasyFood | Ajouter une recette</title>
+    <link rel="stylesheet" href="../../../styles/homePage.css">
     <link rel="stylesheet" href="../../../styles/addNewRecipe.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 </head>
 <body>
-<header>
-    <h1>EasyFood</h1>
-</header>
+<div class="container">
+    <header class="header">
+        <div class="logo-wrapper">
+            <svg class="logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 6V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M3 9C3 7.89543 3.89543 7 5 7H19C20.1046 7 21 7.89543 21 9V18C21 19.1046 20.1046 20 19 20H5C3.89543 20 3 19.1046 3 18V9Z" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            <h1 class="title"><a href="../homePage/index.html">EasyFood</a></h1>
+        </div>
+    </header>
 
-<main>
-    <div class="form-container">
-        <h2>Ajouter une recette</h2>
+    <main class="main">
+        <div class="page-header">
+            <h2 class="page-title">Ajouter une recette</h2>
+            <p class="page-description">Remplissez le formulaire ci-dessous pour créer une nouvelle recette</p>
+        </div>
 
-        <form id="addNewRecipe">
-            <!-- Informations de base -->
-            <div class="form-section">
-                <div class="form-group">
-                    <label for="recipeName">Nom de la recette</label>
-                    <input id="recipeName" type="text" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="recipeType">Type de recette</label>
-                    <select id="recipeType">
-                        <option value="Healthy">Healthy</option>
-                        <option value="Gourmande">Gourmande</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="recipeDifficulty">Difficulté</label>
-                    <select id="recipeDifficulty">
-                        <option value="easy">Facile</option>
-                        <option value="medium">Moyen</option>
-                        <option value="hard">Difficile</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="prepTime">Temps de préparation (min)</label>
-                    <input id="prepTime" type="number" min="1" required>
-                </div>
-            </div>
-
-            <!-- Ingrédients -->
-            <div class="form-section">
-                <h3>Ingrédients</h3>
-                <div id="ingredients-list" class="ingredients-list">
-                    <!-- Les ingrédients ajoutés apparaîtront ici -->
-                </div>
-
-                <div class="form-group">
-                    <label for="ingredientName">Ingrédient</label>
-                    <input id="ingredientName" type="text" placeholder="Ex: Farine">
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group half">
-                        <label for="ingredientQuantity">Quantité</label>
-                        <input id="ingredientQuantity" type="number" min="0">
+        <div class="form-container">
+            <form id="addNewRecipe" class="recipe-form">
+                <!-- Section des informations de base -->
+                <div class="form-card">
+                    <div class="form-card-header">
+                        <h3 class="form-card-title">
+                            <svg class="form-card-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 4.5V19.5M19.5 12H4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Informations générales
+                        </h3>
                     </div>
+                    <div class="form-card-content">
+                        <div class="form-group">
+                            <label for="recipeName" class="form-label">Nom de la recette</label>
+                            <input id="recipeName" type="text" class="form-input" required placeholder="Ex: Tarte aux pommes">
+                        </div>
 
-                    <div class="form-group half">
-                        <label for="ingredientUnit">Unité</label>
-                        <select id="ingredientUnit">
-                            <option value="Grammes">g</option>
-                            <option value="Centilitre">cl</option>
-                            <option value="Unité">unité(s)</option>
-                        </select>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="recipeType" class="form-label">Type de recette</label>
+                                <div class="select-wrapper">
+                                    <select id="recipeType" class="form-select">
+                                        <option value="Healthy">Healthy</option>
+                                        <option value="Gourmande">Gourmande</option>
+                                    </select>
+                                    <svg class="select-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="recipeDifficulty" class="form-label">Difficulté</label>
+                                <div class="select-wrapper">
+                                    <select id="recipeDifficulty" class="form-select">
+                                        <option value="easy">Facile</option>
+                                        <option value="medium">Moyen</option>
+                                        <option value="hard">Difficile</option>
+                                    </select>
+                                    <svg class="select-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="prepTime" class="form-label">Temps de préparation (min)</label>
+                            <input id="prepTime" type="number" class="form-input" min="1" required placeholder="Ex: 45">
+                        </div>
                     </div>
                 </div>
 
-                <button type="button" id="addNewIngredient" class="btn-action">
-                    + Ajouter cet ingrédient
+                <!-- Section des ingrédients -->
+                <div class="form-card">
+                    <div class="form-card-header">
+                        <h3 class="form-card-title">
+                            <svg class="form-card-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 3V8H8M3 3L8 8M3 3L8 8M21 3V8H16M21 3L16 8M8 21H3V16M8 21L3 16M21 21V16H16M21 21L16 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Ingrédients
+                        </h3>
+                    </div>
+                    <div class="form-card-content">
+                        <div id="ingredients-list" class="ingredients-list">
+                            <!-- Les ingrédients ajoutés apparaîtront ici -->
+                            <div class="empty-ingredients">
+                                <p>Aucun ingrédient ajouté</p>
+                            </div>
+                        </div>
+
+                        <div class="ingredient-form">
+                            <div class="form-group">
+                                <label for="ingredientName" class="form-label">Nom de l'ingrédient</label>
+                                <input id="ingredientName" type="text" class="form-input" placeholder="Ex: Farine">
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="ingredientQuantity" class="form-label">Quantité</label>
+                                    <input id="ingredientQuantity" type="number" class="form-input" min="0" placeholder="Ex: 200">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="ingredientUnit" class="form-label">Unité</label>
+                                    <div class="select-wrapper">
+                                        <select id="ingredientUnit" class="form-select">
+                                            <option value="Grammes">g</option>
+                                            <option value="Centilitre">cl</option>
+                                            <option value="Unité">unité(s)</option>
+                                        </select>
+                                        <svg class="select-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="button" id="addNewIngredient" class="button secondary">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                                Ajouter cet ingrédient
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section des étapes -->
+                <div class="form-card">
+                    <div class="form-card-header">
+                        <h3 class="form-card-title">
+                            <svg class="form-card-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 5H7C5.89543 5 5 5.89543 5 7V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V7C19 5.89543 18.1046 5 17 5H15M9 5C9 6.10457 9.89543 7 11 7H13C14.1046 7 15 6.10457 15 5M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5M9 14L11 16L15 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Étapes de préparation
+                        </h3>
+                    </div>
+                    <div class="form-card-content">
+                        <div id="steps-list" class="steps-list">
+                            <!-- Les étapes ajoutées apparaîtront ici -->
+                            <div class="empty-steps">
+                                <p>Aucune étape ajoutée</p>
+                            </div>
+                        </div>
+
+                        <div class="step-form">
+                            <div class="form-group">
+                                <label for="stepName" class="form-label">Titre de l'étape</label>
+                                <input id="stepName" type="text" class="form-input" placeholder="Ex: Préparation de la pâte">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="stepDesc" class="form-label">Description</label>
+                                <textarea id="stepDesc" class="form-textarea" rows="3" placeholder="Décrivez les actions à réaliser..."></textarea>
+                            </div>
+
+                            <button type="button" id="addNewStep" class="button secondary">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                                Ajouter cette étape
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section de l'image -->
+                <div class="form-card">
+                    <div class="form-card-header">
+                        <h3 class="form-card-title">
+                            <svg class="form-card-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 16L8.58579 11.4142C9.36683 10.6332 10.6332 10.6332 11.4142 11.4142L16 16M14 14L15.5858 12.4142C16.3668 11.6332 17.6332 11.6332 18.4142 12.4142L20 14M14 8H14.01M6 20H18C19.1046 20 20 19.1046 20 18V6C20 4.89543 19.1046 4 18 4H6C4.89543 4 4 4.89543 4 6V18C4 19.1046 4.89543 20 6 20Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Image de la recette
+                        </h3>
+                    </div>
+                    <div class="form-card-content">
+                        <div class="form-group">
+                            <label for="recipeImage" class="form-label">URL de l'image</label>
+                            <input type="url" id="recipeImage" class="form-input" placeholder="https://exemple.com/image.jpg">
+                            <p class="form-hint">L'image doit être au format JPG, PNG ou WebP</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bouton d'envoi -->
+                <button type="submit" id="recipeFormSubmit" class="button primary submit-button">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 13L9 17L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Enregistrer la recette
                 </button>
-            </div>
+            </form>
+        </div>
+    </main>
 
-            <!-- Étapes -->
-            <div class="form-section">
-                <h3>Étapes de préparation</h3>
-                <div id="steps-list" class="steps-list">
-                    <!-- Les étapes ajoutées apparaîtront ici -->
-                </div>
+    <footer class="footer">
+        <p class="copyright">© 2025 EasyFood - Healthy, Rapide & Gourmand</p>
+    </footer>
+</div>
 
-                <div class="form-group">
-                    <label for="stepName">Titre de l'étape</label>
-                    <input id="stepName" type="text" placeholder="Ex: Préparation de la pâte">
-                </div>
-
-                <div class="form-group">
-                    <label for="stepDesc">Description</label>
-                    <textarea id="stepDesc" rows="3" placeholder="Décrivez les actions à réaliser"></textarea>
-                </div>
-
-                <button type="button" id="addNewStep" class="btn-action">
-                    + Ajouter cette étape
-                </button>
-            </div>
-
-            <!-- Image -->
-            <div class="form-section">
-                <div class="form-group">
-                    <label for="recipeImage">Image (URL)</label>
-                    <input type="url" id="recipeImage" placeholder="https://...">
-                </div>
-            </div>
-
-            <!-- Envoi -->
-            <button type="submit" id="recipeFormSubmit" class="btn-submit">
-                Enregistrer la recette
-            </button>
-        </form>
+<!-- Template pour les ingrédients -->
+<template id="ingredient-item-template">
+    <div class="ingredient-item">
+        <div class="ingredient-content">
+            <span class="ingredient-name"></span>
+            <span class="ingredient-quantity"></span>
+            <span class="ingredient-unit"></span>
+        </div>
+        <button type="button" class="delete-button" aria-label="Supprimer cet ingrédient">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
     </div>
-</main>
+</template>
 
-<footer>
-    <p>© 2025 EasyFood - Healthy, Rapide & Gourmand</p>
-</footer>
+<!-- Template pour les étapes -->
+<template id="step-item-template">
+    <div class="step-item">
+        <div class="step-header">
+            <span class="step-number"></span>
+            <h4 class="step-title"></h4>
+            <button type="button" class="delete-button" aria-label="Supprimer cette étape">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+        <p class="step-description"></p>
+    </div>
+</template>
 
 <script type="module">
     import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
@@ -128,7 +248,6 @@
 <script src="../../../js/supabase.js" type="module"></script>
 <script src="../../../js/data.js" type="module"></script>
 <script src="../../../js/main.js" type="module"></script>
-<script src="../../../js/filters.js" type="module"></script>
 <script src="../../../js/ui.js" type="module"></script>
 </body>
 </html>

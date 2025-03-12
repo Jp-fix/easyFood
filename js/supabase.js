@@ -22,8 +22,7 @@ export async function saveRecipe(getNewRecipeFormData){
     }
 
     const recipeId = recipeInsertData[0].id
-
-
+    
     // Insérer les ingrédients
     if (recipeIngredients && recipeIngredients.length > 0){
         const ingredientsToInsert = recipeIngredients.map(ingredient => ({
@@ -43,7 +42,6 @@ export async function saveRecipe(getNewRecipeFormData){
     }
 
     // Insérer les étapes
-
     if (recipeSteps && recipeSteps.length > 0) {
         const stepsToInsert = recipeSteps.map((step, index) => ({
             recipe_id: recipeId,
@@ -62,6 +60,45 @@ export async function saveRecipe(getNewRecipeFormData){
 
     console.log('Recette ajoutée avec succès :', recipeInsertData)
     return recipeInsertData
+}
+
+
+export async function getRecipe(searchTerm) {
+    try {
+        // Si searchTerm est une chaîne non vide
+        if (searchTerm && typeof searchTerm === 'string') {
+            // Utiliser .ilike pour une recherche partielle insensible à la casse
+            const { data, error } = await supabase
+                .from('recipes')
+                .select()
+                .ilike('recipeName', `%${searchTerm}%`)
+            
+            if (error) throw error
+            return data
+        }
+        // Si on passe un objet avec un champ recipeName
+        else if (searchTerm && searchTerm.recipeName) {
+            const { data, error } = await supabase
+                .from('recipes')
+                .select()
+                .ilike('recipeName', `%${searchTerm.recipeName}%`)
+            
+            if (error) throw error
+            return data
+        }
+        // Si aucun terme de recherche, retourner toutes les recettes
+        else {
+            const { data, error } = await supabase
+                .from('recipes')
+                .select()
+            
+            if (error) throw error
+            return data
+        }
+    } catch (error) {
+        console.error('Erreur de recherche:', error)
+        return null
+    }
 }
 
 
