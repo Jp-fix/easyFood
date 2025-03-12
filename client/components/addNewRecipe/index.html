@@ -1,83 +1,134 @@
 <!doctype html>
 <html lang="fr">
-    <head>
-        <meta charset="utf-8">
-        <title>easyFood | Healthy, Rapide & Gourmand</title>
-        <link rel="stylesheet" href="../../../styles/addNewRecipe.css">
-    </head>
-    <body>
-        <header>
-            <!--TODO LOGO--><img src="">
-            <nav>
-            </nav>
-            <h1><a href="../homePage/index.html">EasyFood</a></h1>
-        </header>
-        <main>
-            <div class="addRecipe">
-                <form id="addNewRecipe">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>easyFood | Ajouter une recette</title>
+    <link rel="stylesheet" href="../../../styles/addNewRecipe.css">
+</head>
+<body>
+<header>
+    <h1>EasyFood</h1>
+</header>
 
+<main>
+    <div class="form-container">
+        <h2>Ajouter une recette</h2>
+
+        <form id="addNewRecipe">
+            <!-- Informations de base -->
+            <div class="form-section">
+                <div class="form-group">
                     <label for="recipeName">Nom de la recette</label>
-                        <input id="recipeName" type="text">
+                    <input id="recipeName" type="text" required>
+                </div>
 
+                <div class="form-group">
                     <label for="recipeType">Type de recette</label>
                     <select id="recipeType">
                         <option value="Healthy">Healthy</option>
                         <option value="Gourmande">Gourmande</option>
                     </select>
+                </div>
 
-                    <label for="recipeDifficulty">Difficulté de la recette</label>
+                <div class="form-group">
+                    <label for="recipeDifficulty">Difficulté</label>
                     <select id="recipeDifficulty">
                         <option value="easy">Facile</option>
                         <option value="medium">Moyen</option>
                         <option value="hard">Difficile</option>
                     </select>
+                </div>
 
-                    <label for="prepTime">Temps de préparation (en minutes)</label>
-                    <input id="prepTime" type="number">
-
-                    <label for="ingredientName">Ingrédient</label>
-                    <input id="ingredientName" type="text" placeholder="Nom">
-                    <label for="ingredientQuantity">Quantité</label>
-
-                    <input id="ingredientQuantity" type="number">
-                    <label for="ingredientUnit">Unité</label>
-
-                    <select id="ingredientUnit">
-                        <option value="Grammes">Grammes</option>
-                        <option value="Centilitre">Centilitre</option>
-                        <option value="Unité">Unité</option>
-                    </select>
-
-                    <label for="addNewIngredient">Ajouter un nouvel ingrédient</label>
-                    <input type="button" id="addNewIngredient" placeholder="Nouvel ingrédient">
-
-                    <label for="stepName">Étape</label>
-                    <input id="stepName" type="text" placeholder="Étape">
-                    <label for="stepDesc">Description</label>
-                    <input id="stepDesc" type="text">
-
-                    <label for="addNewStep">Ajouter une étape</label>
-                    <input type="button" id="addNewStep">
-
-                    <label for="recipeImage">Image</label>
-                    <input type="url" id="recipeImage">
-
-                    <label for="recipeFormSubmit">Envoyer la recette</label>
-                    <input type="submit" id="recipeFormSubmit">
-                </form>
+                <div class="form-group">
+                    <label for="prepTime">Temps de préparation (min)</label>
+                    <input id="prepTime" type="number" min="1" required>
+                </div>
             </div>
-        </main>
-        <footer>
-        </footer>
-        <!-- Remplace ton importmap par ceci -->
-        <script type="module">
-            import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
-            window.supabaseCreateClient = createClient;
-        </script>
-    <script src="../../../js/supabase.js" type="module"></script>
-    <script src="../../../js/data.js" type="module"></script>
-    <script src="../../../js/main.js" type="module"></script>
-    <script src="../../../js/filters.js" type="module"></script>
-    <script src="../../../js/ui.js" type="module"></script>
-    </body>
+
+            <!-- Ingrédients -->
+            <div class="form-section">
+                <h3>Ingrédients</h3>
+                <div id="ingredients-list" class="ingredients-list">
+                    <!-- Les ingrédients ajoutés apparaîtront ici -->
+                </div>
+
+                <div class="form-group">
+                    <label for="ingredientName">Ingrédient</label>
+                    <input id="ingredientName" type="text" placeholder="Ex: Farine">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label for="ingredientQuantity">Quantité</label>
+                        <input id="ingredientQuantity" type="number" min="0">
+                    </div>
+
+                    <div class="form-group half">
+                        <label for="ingredientUnit">Unité</label>
+                        <select id="ingredientUnit">
+                            <option value="Grammes">g</option>
+                            <option value="Centilitre">cl</option>
+                            <option value="Unité">unité(s)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="button" id="addNewIngredient" class="btn-action">
+                    + Ajouter cet ingrédient
+                </button>
+            </div>
+
+            <!-- Étapes -->
+            <div class="form-section">
+                <h3>Étapes de préparation</h3>
+                <div id="steps-list" class="steps-list">
+                    <!-- Les étapes ajoutées apparaîtront ici -->
+                </div>
+
+                <div class="form-group">
+                    <label for="stepName">Titre de l'étape</label>
+                    <input id="stepName" type="text" placeholder="Ex: Préparation de la pâte">
+                </div>
+
+                <div class="form-group">
+                    <label for="stepDesc">Description</label>
+                    <textarea id="stepDesc" rows="3" placeholder="Décrivez les actions à réaliser"></textarea>
+                </div>
+
+                <button type="button" id="addNewStep" class="btn-action">
+                    + Ajouter cette étape
+                </button>
+            </div>
+
+            <!-- Image -->
+            <div class="form-section">
+                <div class="form-group">
+                    <label for="recipeImage">Image (URL)</label>
+                    <input type="url" id="recipeImage" placeholder="https://...">
+                </div>
+            </div>
+
+            <!-- Envoi -->
+            <button type="submit" id="recipeFormSubmit" class="btn-submit">
+                Enregistrer la recette
+            </button>
+        </form>
+    </div>
+</main>
+
+<footer>
+    <p>© 2025 EasyFood - Healthy, Rapide & Gourmand</p>
+</footer>
+
+<script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+    window.supabaseCreateClient = createClient;
+</script>
+<script src="../../../js/supabase.js" type="module"></script>
+<script src="../../../js/data.js" type="module"></script>
+<script src="../../../js/main.js" type="module"></script>
+<script src="../../../js/filters.js" type="module"></script>
+<script src="../../../js/ui.js" type="module"></script>
+</body>
 </html>
