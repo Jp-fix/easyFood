@@ -19,7 +19,6 @@
             <h1 class="title"><a href="../homePage/index.html">EasyFood</a></h1>
         </div>
     </header>
-
     <main class="main">
         <section class="search-section">
             <h2 class="section-title">Trouver une recette</h2>
@@ -38,7 +37,6 @@
                                 aria-label="Rechercher une recette"
                         >
                     </div>
-
                     <div class="filter-container">
                         <div class="filter-group">
                             <h3 class="filter-title">Type de cuisine</h3>
@@ -53,7 +51,6 @@
                                 </label>
                             </div>
                         </div>
-
                         <div class="filter-group">
                             <h3 class="filter-title">Difficulté</h3>
                             <div class="radio-group">
@@ -71,7 +68,6 @@
                                 </label>
                             </div>
                         </div>
-
                         <div class="filter-actions">
                             <button type="button" id="resetFilters" class="button outline">Réinitialiser</button>
                             <button type="submit" id="btn-search" class="button primary">Rechercher</button>
@@ -80,31 +76,25 @@
                 </form>
             </div>
         </section>
-
         <section class="results-section">
             <div class="results-header">
                 <h2 class="section-title">Résultats</h2>
                 <div class="results-count" id="resultsCount">0 recettes trouvées</div>
             </div>
-
-            <div class="recipe-grid" id="recipeContainer">
+            <div class="recipe-grid" id="recipeResultContainer">
                 <!-- Les résultats de recherche seront insérés ici dynamiquement -->
             </div>
         </section>
     </main>
-
     <footer class="footer">
         <p class="copyright">© 2025 EasyFood - Healthy, Rapide & Gourmand</p>
     </footer>
 </div>
-
-›
-
 <script type="module">
     import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
     window.supabaseCreateClient = createClient;
 </script>
-<script src="../../../js/supabase.js" type="module"></script>
 <script src="../../../js/search.js" type="module"></script>
+<script src="../../../js/supabase.js" type="module"></script>
 </body>
 </html>

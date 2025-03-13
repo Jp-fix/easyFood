@@ -9,7 +9,7 @@
     background-color: var(--background);
     border-radius: var(--radius);
     border: 1px solid var(--border);
-    overflow: hidden;
+    /*overflow: hidden;*/
     box-shadow: var(--shadow);
 }
 
@@ -197,7 +197,7 @@
 /* Cartes de recettes */
 .recipe-card {
     border-radius: var(--radius);
-    overflow: hidden;
+    /*overflow: hidden;*/
     background-color: var(--background);
     border: 1px solid var(--border);
     box-shadow: var(--shadow-sm);
@@ -211,7 +211,9 @@
 
 .recipe-image {
     height: 180px;
+    /*
     overflow: hidden;
+    */
     position: relative;
 }
 
