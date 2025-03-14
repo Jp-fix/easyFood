@@ -1,100 +1,100 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EasyFood | Rechercher des Recettes</title>
-    <link rel="stylesheet" href="../../../styles/checkRecipe.css">
-    <link rel="stylesheet" href="../../../styles/homePage.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
-</head>
-<body>
-<div class="container">
-    <header class="header">
-        <div class="logo-wrapper">
-            <svg class="logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 6V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <path d="M3 9C3 7.89543 3.89543 7 5 7H19C20.1046 7 21 7.89543 21 9V18C21 19.1046 20.1046 20 19 20H5C3.89543 20 3 19.1046 3 18V9Z" stroke="currentColor" stroke-width="2"/>
-            </svg>
-            <h1 class="title"><a href="../homePage/index.html">EasyFood</a></h1>
-        </div>
-    </header>
-    <main class="main">
-        <section class="search-section">
-            <h2 class="section-title">Trouver une recette</h2>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>EasyFood | Rechercher des Recettes</title>
+        <link rel="stylesheet" href="../../../styles/checkRecipe.css">
+        <link rel="stylesheet" href="../../../styles/homePage.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    </head>
+        <body>
+        <div class="container">
+            <header class="header">
+                <div class="logo-wrapper">
+                    <svg class="logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 6V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M3 9C3 7.89543 3.89543 7 5 7H19C20.1046 7 21 7.89543 21 9V18C21 19.1046 20.1046 20 19 20H5C3.89543 20 3 19.1046 3 18V9Z" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    <h1 class="title"><a href="../homePage/index.html">EasyFood</a></h1>
+                </div>
+            </header>
+            <main class="main">
+                <section class="search-section">
+                    <h2 class="section-title">Trouver une recette</h2>
 
-            <div class="search-container">
-                <form class="search-form" id="searchRecipe">
-                    <div class="search-input-wrapper">
-                        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                        <input
-                                type="text"
-                                id="searchRecipeText"
-                                class="search-input"
-                                placeholder="Rechercher une recette (ex: Pizza, Salade...)"
-                                aria-label="Rechercher une recette"
-                        >
-                    </div>
-                    <div class="filter-container">
-                        <div class="filter-group">
-                            <h3 class="filter-title">Type de cuisine</h3>
-                            <div class="checkbox-group">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="cuisine" value="healthy" class="checkbox-input">
-                                    <span class="checkbox-text">Healthy</span>
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="cuisine" value="gourmand" class="checkbox-input">
-                                    <span class="checkbox-text">Gourmand</span>
-                                </label>
+                    <div class="search-container">
+                        <form class="search-form" id="searchRecipe">
+                            <div class="search-input-wrapper">
+                                <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                                <input
+                                        type="text"
+                                        id="searchRecipeText"
+                                        class="search-input"
+                                        placeholder="Rechercher une recette (ex: Pizza, Salade...)"
+                                        aria-label="Rechercher une recette"
+                                >
                             </div>
-                        </div>
-                        <div class="filter-group">
-                            <h3 class="filter-title">Difficulté</h3>
-                            <div class="radio-group">
-                                <label class="radio-label">
-                                    <input type="radio" name="difficulty" value="easy" class="radio-input">
-                                    <span class="radio-text">Facile</span>
-                                </label>
-                                <label class="radio-label">
-                                    <input type="radio" name="difficulty" value="medium" class="radio-input">
-                                    <span class="radio-text">Moyen</span>
-                                </label>
-                                <label class="radio-label">
-                                    <input type="radio" name="difficulty" value="hard" class="radio-input">
-                                    <span class="radio-text">Difficile</span>
-                                </label>
+                            <div class="filter-container">
+                                <div class="filter-group">
+                                    <h3 class="filter-title">Type de cuisine</h3>
+                                    <div class="checkbox-group">
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="cuisine" value="healthy" class="checkbox-input">
+                                            <span class="checkbox-text">Healthy</span>
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="cuisine" value="gourmand" class="checkbox-input">
+                                            <span class="checkbox-text">Gourmand</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="filter-group">
+                                    <h3 class="filter-title">Difficulté</h3>
+                                    <div class="radio-group">
+                                        <label class="radio-label">
+                                            <input type="radio" name="difficulty" value="easy" class="radio-input">
+                                            <span class="radio-text">Facile</span>
+                                        </label>
+                                        <label class="radio-label">
+                                            <input type="radio" name="difficulty" value="medium" class="radio-input">
+                                            <span class="radio-text">Moyen</span>
+                                        </label>
+                                        <label class="radio-label">
+                                            <input type="radio" name="difficulty" value="hard" class="radio-input">
+                                            <span class="radio-text">Difficile</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="filter-actions">
+                                    <button type="button" id="resetFilters" class="button outline">Réinitialiser</button>
+                                    <button type="submit" id="btn-search" class="button primary">Rechercher</button>
+                                </div>
                             </div>
-                        </div>
-                        <div class="filter-actions">
-                            <button type="button" id="resetFilters" class="button outline">Réinitialiser</button>
-                            <button type="submit" id="btn-search" class="button primary">Rechercher</button>
-                        </div>
+                        </form>
                     </div>
-                </form>
-            </div>
-        </section>
-        <section class="results-section">
-            <div class="results-header">
-                <h2 class="section-title">Résultats</h2>
-                <div class="results-count" id="resultsCount">0 recettes trouvées</div>
-            </div>
-            <div class="recipe-grid" id="recipeResultContainer">
-                <!-- Les résultats de recherche seront insérés ici dynamiquement -->
-            </div>
-        </section>
-    </main>
-    <footer class="footer">
-        <p class="copyright">© 2025 EasyFood - Healthy, Rapide & Gourmand</p>
-    </footer>
-</div>
-<script type="module">
-    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
-    window.supabaseCreateClient = createClient;
-</script>
-<script src="../../../js/search.js" type="module"></script>
-<script src="../../../js/supabase.js" type="module"></script>
-</body>
+                </section>
+                <section class="results-section">
+                    <div class="results-header">
+                        <h2 class="section-title">Résultats</h2>
+                        <div class="results-count" id="resultsCount"></div>
+                    </div>
+                    <div class="recipe-grid" id="recipeResultContainer">
+                        <!-- Les résultats de recherche seront insérés ici dynamiquement -->
+                    </div>
+                </section>
+            </main>
+            <footer class="footer">
+                <p class="copyright">© 2025 EasyFood - Healthy, Rapide & Gourmand</p>
+            </footer>
+        </div>
+        <script type="module">
+            import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+            window.supabaseCreateClient = createClient;
+        </script>
+        <script src="../../../js/search.js" type="module"></script>
+        <script src="../../../js/supabase.js" type="module"></script>
+    </body>
 </html>
