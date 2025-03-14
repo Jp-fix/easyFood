@@ -62,7 +62,6 @@ export async function saveRecipe(getNewRecipeFormData){
     return recipeInsertData
 }
 
-
 export async function getRecipe(searchTerm) {
     try {
         // Si searchTerm est une chaîne non vide
@@ -101,8 +100,20 @@ export async function getRecipe(searchTerm) {
     }
 }
 
-
-
+// Fonction pour récupérer toutes les recettes
+export async function getAllRecipes() {
+    try {
+        const { data: recipes, error } = await supabase
+            .from('recipes')
+            .select('*')
+        
+        if (error) throw error
+        return recipes
+    } catch (error) {
+        console.error("Erreur lors de la récupération des recettes:", error)
+        return null
+    }
+}
 
 
 

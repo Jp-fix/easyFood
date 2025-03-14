@@ -1,4 +1,4 @@
-import { getRecipe } from "./supabase.js";
+import { getRecipe,getAllRecipes } from "./supabase.js";
 
 const submitSearch = document.getElementById("searchRecipe")
 
@@ -52,23 +52,24 @@ async function matchingRecipe() {
     }
 }
 
-
-/*
-function showMatchedResult (){
-const recipeResult = document.getElementById("recipeResultContainer")
-
-recipeResult.innerHTML = `<div class="recipe-card">
+async function renderAllRecipes(){
+    const allRecipes = await getAllRecipes()
+    const recipeResult = document.getElementById("recipeResultContainer")
+    
+   for (let i = 0; i < allRecipes.length; i++){
+       recipeResult.innerHTML += `
+        <div class="recipe-card">
           <div class="recipe-image">
-              <img src="https://placehold.co/150x150" alt="image_placeholder150x150">
+              <img src="${allRecipes[i].recipeImage}" alt="image_placeholder150x150">
           </div>
           <div class="recipe-content">
               <div class="recipe-tags">
-                  <span class="recipe-tag type"></span>
-                  <span class="recipe-tag difficulty"></span>
+                  <span class="recipe-tag type">${allRecipes[i].recipeType}</span>
+                  <span class="recipe-tag difficulty">${allRecipes[i].recipeDifficulty}</span>
               </div>
-              <h3 class="recipe-title"></h3>
+              <h3 class="recipe-title">${allRecipes[i].recipeName}</h3>
               <div class="recipe-meta">
-                  <div class="recipe-time">
+                  <div class="recipe-time">${allRecipes[i].recipePrepTime} minutes
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M12 6V12L16 14M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                       </svg>
@@ -78,5 +79,18 @@ recipeResult.innerHTML = `<div class="recipe-card">
               <button class="recipe-view button secondary">Voir la recette</button>
           </div>
       </div> `
-console.log("Accès à la div ok : ",recipeResult)
-}*/
+   }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    console.log(allRecipes.length)
+    
+}
+renderAllRecipes()
