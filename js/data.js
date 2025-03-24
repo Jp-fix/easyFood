@@ -51,16 +51,25 @@ export class Recipe {
 }
 // Ajout des ingrédients de la recette
 document.getElementById("addNewIngredient").addEventListener("click", function (e){
-
+    
     let ingredientName = document.getElementById("ingredientName").value
     let ingredientQuantity = document.getElementById("ingredientQuantity").value
     let ingredientUnit = document.getElementById("ingredientUnit").value
+    
     let ingredient = {
         name:ingredientName,
         quantity :ingredientQuantity,
         unit :ingredientUnit,
     }
-
+    
+    const ingredientsList = document.getElementById("ingredients-list")
+    document.getElementById("ingredient-Content").innerHTML = "Ingrédients ajoutés ✅"
+    ingredientsList.innerHTML += `
+                            <div class="empty-ingredients" id="ingredient-Content">
+                                <div><b>${ingredientName} :</b> ${ingredientQuantity} ${ingredientUnit}</div>
+                            </div>
+                        
+    `
     recipeIngredients.push(ingredient)
 
     document.getElementById("ingredientName").value = ""
@@ -76,10 +85,21 @@ document.getElementById("addNewStep").addEventListener("click", function (e){
     let stepName = document.getElementById("stepName").value
     let stepDesc = document.getElementById("stepDesc").value
     let completStep = `${stepName} ${stepDesc}`
-    recipeSteps.push(completStep)
-
-    document.getElementById("stepName").value = ""
-    document.getElementById("stepDesc").value = ""
-
+    
+    recipeSteps.push (completStep)
+    
+    //TODO : Remplacer "aucune étape ajoutée" par "Étape ajoutées ✅".Fonctionne avec les ingredients. Pourquoi pas ici ?
+    const stepsList = document.getElementById("steps-list")
+    document.getElementById("steps-content").innerHtml = "Étape ajoutées ✅"
+    stepsList.innerHTML += `
+        <div class="empty-steps" id="steps-content">
+            <div> ${completStep}</div>
+        </div>
+    `
+    
+    
+    document.getElementById ('stepName').value = ''
+    document.getElementById ('stepDesc').value = ''
+    
     console.log("All steps array:",recipeSteps)
 })

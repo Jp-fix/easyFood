@@ -90,11 +90,11 @@
                             Ingrédients
                         </h3>
                     </div>
-                    <div class="form-card-content">
+                    <div class="form-card-content" id="ingredient-Adding">
                         <div id="ingredients-list" class="ingredients-list">
                             <!-- Les ingrédients ajoutés apparaîtront ici -->
-                            <div class="empty-ingredients">
-                                <p>Aucun ingrédient ajouté</p>
+                            <div class="empty-ingredients" id="ingredient-Content">
+                                <div><p>Aucun ingrédient ajouté</p></div>
                             </div>
                         </div>
 
@@ -134,7 +134,6 @@
                         </div>
                     </div>
                 </div>
-
                 <!-- Section des étapes -->
                 <div class="form-card">
                     <div class="form-card-header">
@@ -148,10 +147,17 @@
                     <div class="form-card-content">
                         <div id="steps-list" class="steps-list">
                             <!-- Les étapes ajoutées apparaîtront ici -->
-                            <div class="empty-steps">
+                            <div class="empty-steps" id="steps-content">
                                 <p>Aucune étape ajoutée</p>
                             </div>
                         </div>
+
+  <!--                      <div id="ingredients-list" class="ingredients-list">
+                            &lt;!&ndash; Les ingrédients ajoutés apparaîtront ici &ndash;&gt;
+                            <div class="empty-ingredients" id="ingredient-Content">
+                                <div><p>Aucun ingrédient ajouté</p></div>
+                            </div>
+                        </div>-->
 
                         <div class="step-form">
                             <div class="form-group">
@@ -188,7 +194,7 @@
                         <div class="form-group">
                             <label for="recipeImage" class="form-label">URL de l'image</label>
                             <input type="url" id="recipeImage" class="form-input" placeholder="https://exemple.com/image.jpg">
-                            <p class="form-hint">L'image doit être au format JPG, PNG ou WebP</p>
+                            <p class="form-hint">L'image doit être au format JPG, PNG.</p>
                         </div>
                     </div>
                 </div>
