@@ -6,7 +6,8 @@ const supabaseUrl = 'https://auasihwlimiprtbgifkx.supabase.co'
 const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF1YXNpaHdsaW1pcHJ0YmdpZmt4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDE2OTkwMzEsImV4cCI6MjA1NzI3NTAzMX0.bNVIOvA3jmdjYpHB5qFY6q1Bvf4Ge8EMPWINxUaVfWY"
 
 const supabase = window.supabaseCreateClient(supabaseUrl, supabaseKey);
-
+// Au début du fichier, après la création de l'instance supabase, ajouter :
+export { supabase };
 // Envoi recette à Supabase
 export async function saveRecipe(getNewRecipeFormData){
     const {recipeIngredients, recipeSteps, ...mainRecipeData} = getNewRecipeFormData
