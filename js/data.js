@@ -93,7 +93,7 @@ document.getElementById("addNewStep").addEventListener("click", function (e){
     document.getElementById("steps-content").innerHtml = "Étape ajoutées ✅"
     stepsList.innerHTML += `
         <div class="empty-steps" id="steps-content">
-            <div> ${completStep}</div>
+            <div> <h4>${stepName}</h4> ${stepDesc}</div>
         </div>
     `
     
